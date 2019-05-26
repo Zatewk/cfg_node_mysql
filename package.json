@@ -1,0 +1,27 @@
+{
+  "name": "node_mysql",
+  "version": "0.0.1",
+  "description": "Learning with the tutorial from Code for Geeks! Found here: https://codeforgeek.com/nodejs-mysql-tutorial/",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zatewk/cfg_node_mysql.git"
+  },
+  "keywords": [
+    "node",
+    "mysql"
+  ],
+  "author": "zatewk",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Zatewk/cfg_node_mysql/issues"
+  },
+  "homepage": "https://github.com/Zatewk/cfg_node_mysql#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mysql": "^2.17.1"
+  }
+}
