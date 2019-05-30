@@ -12,31 +12,18 @@ var pool      =    mysql.createPool({
 });
 
 function handle_database(req,res) {
-    
-    pool.getConnection(function(err,connection){
-        if (err) {
-          res.json({"code" : 100, "status" : "Error in connection database"});
-          return;
-        }   
-
-        console.log('connected as id ' + connection.threadId);
-        
-        connection.query("select * from user",function(err,rows){
-            connection.release();
-            if(!err) {
-                res.json(rows);
-            }           
-        });
-
-        connection.on('error', function(err) {      
-              res.json({"code" : 100, "status" : "Error in connection database"});
-              return;     
-        });
+  // connection will be acquired automatically
+  pool.query("select * from user",function(err,rows){
+  if(err) {
+      return res.json({'error': true, 'message': 'Error occurred'+err});
+  }
+  //connection will be released as well.
+  res.json(rows);
   });
 }
 
-app.get("/",function(req,res){-
-        handle_database(req,res);
+app.get("/",function(req,res){
+  handle_database(req,res);
 });
 
 app.listen(3000);
